@@ -29,5 +29,5 @@ public interface DoctorMapper {
 
     void deleteDoctor(Integer doctorId);
 
-    void addDoctor(Integer authority, String name, String office, String image, String title, String introduction, Integer communityId);
+    void addDoctor(Integer id, Integer authority, String name, String office, String image, String title, String introduction, Integer communityId);
 }

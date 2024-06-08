@@ -93,6 +93,7 @@ public class DoctorController {
      */
     @RequestMapping(value = "/addDoctor", method = RequestMethod.POST)
     public void addDoctor(@RequestBody Doctor doctor) {
+        Integer id = doctor.getId();
         Integer authority = doctor.getAuthority();
         String name = doctor.getName();
         String office = doctor.getOffice();
@@ -100,6 +101,6 @@ public class DoctorController {
         String introduction = doctor.getIntroduction();
         String image = doctor.getImage();
         Integer communityId = 1;
-        doctorService.addDoctor(authority, name, office, title, introduction, image, communityId);
+        doctorService.addDoctor(id, authority, name, office, title, introduction, image, communityId);
     }
 }

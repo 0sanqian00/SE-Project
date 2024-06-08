@@ -89,8 +89,8 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void addDoctor(Integer authority, String name, String office, String image, String title, String introduction, Integer communityId) {
-        doctorMapper.addDoctor(authority, name, office, image, title, introduction, communityId);
+    public void addDoctor(Integer id, Integer authority, String name, String office, String image, String title, String introduction, Integer communityId) {
+        doctorMapper.addDoctor(id, authority, name, office, image, title, introduction, communityId);
     }
 
 }
