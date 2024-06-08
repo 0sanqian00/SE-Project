@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.MedicationMapper">
+    <select id="getMedicalRecords" resultType="com.web.pojo.MedicalRecord">
+        SELECT *
+        FROM medical_records join person
+        WHERE doctor_id = #{id} AND person.id = medical_records.person_id
+    </select>
+    <select id="getMedicationIds" resultType="java.lang.Integer">
+        SELECT medication_id
+        FROM medication_situation
+        WHERE person_id = #{id}
+    </select>
+    <select id="getMedicalRecordByMedicationId" resultType="com.web.pojo.DrugPlan">
+        SELECT *
+        FROM medication_situation
+        WHERE person_id = #{id}          and medication_id = #{medicationId}
+    </select>
+    <select id="getMedicationById" resultType="com.web.pojo.Medication">
+        SELECT *
+        FROM medication
+        WHERE id = #{medicationId}
+    </select>
+    <select id="getName" resultType="java.lang.String">
+        SELECT name FROM medication WHERE id = #{id}
+    </select>
+
+</mapper>

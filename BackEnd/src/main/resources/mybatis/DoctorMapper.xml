@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.DoctorMapper">
+    <insert id="appoint">
+        INSERT INTO appointment(person_id, doctor_id, time, `order`)
+        VALUES (#{memberId}, #{doctorId}, #{appointmentTime}, #{order})
+    </insert>
+    <insert id="addDoctor">
+        INSERT INTO doctor(id, authority, name, office, image, title, introduction, community_id)
+        VALUES (#{id}, #{authority}, #{name}, #{office}, #{image}, #{title}, #{introduction}, #{communityId})
+    </insert>
+    <update id="updateAppointmentStateWithRequest">
+        <!-- 更新 available_appointment_number 表中的记录 -->
+        UPDATE available_appointment_number
+        SET num1 = IF(#{appointmentTime} = '09:00', num1 - 1, num1),
+            num2 = IF(#{appointmentTime} = '10:00', num2 - 1, num2),
+            num3 = IF(#{appointmentTime} = '13:00', num3 - 1, num3),
+            num4 = IF(#{appointmentTime} = '14:30', num4 - 1, num4),
+            num5 = IF(#{appointmentTime} = '15:00', num5 - 1, num5),
+            num6 = IF(#{appointmentTime} = '16:00', num6 - 1, num6)
+        WHERE doctor_id = #{doctorId}
+
+    </update>
+    <update id="updateAppointmentStateByDoctor">
+        UPDATE available_appointment_number
+        SET
+        num1 = #{num1},
+        num2 = #{num2},
+        num3 = #{num3},
+        num4 = #{num4},
+        num5 = #{num5},
+        num6 = #{num6}
+        WHERE doctor_id = #{doctorId}
+    </update>
+    <update id="updateRecentAppointmentTime">
+        UPDATE medical_records
+        SET datetime = (
+            SELECT MIN(a.time)
+            FROM appointment a
+            WHERE a.person_id = medical_records.person_id
+              AND a.doctor_id = medical_records.doctor_id
+        )
+        WHERE EXISTS (
+                      SELECT 1
+                      FROM appointment a
+                      WHERE a.person_id = medical_records.person_id
+                        AND a.doctor_id = medical_records.doctor_id
+                  );
+    </update>
+    <update id="updateDoctorAuthority">
+        UPDATE doctor
+        SET authority = #{authority}
+        WHERE id = #{doctorId}
+    </update>
+    <delete id="deleteDoctor">
+        DELETE
+        FROM doctor
+        WHERE id = #{doctorId}
+    </delete>
+    <select id="getDoctorNameByDoctorId" resultType="java.lang.String">
+        SELECT name
+        FROM doctor
+        WHERE id = #{doctorId}
+    </select>
+
+    <select id="getOfficeByDoctorId" resultType="java.lang.String">
+        SELECT office
+        FROM doctor
+        WHERE id = #{doctorId}
+    </select>
+    <select id="getDoctorList" resultType="com.web.pojo.Doctor">
+        SELECT *
+        FROM doctor
+    </select>
+    <select id="getNumberOfAppointmentsByDoctorId" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM appointment
+        WHERE id = #{doctorId} AND time = #{appointmentTime}
+    </select>
+    <select id="getPersonIdByDoctorId" resultType="java.lang.Integer">
+        SELECT person_id
+        FROM appointment
+        WHERE doctor_id = #{doctorId}
+    </select>
+    <select id="appointmentState" resultType="com.web.pojo.AppointmentInfo">
+        SELECT *
+        FROM available_appointment_number
+        WHERE doctor_id = #{doctorId}
+    </select>
+
+</mapper>

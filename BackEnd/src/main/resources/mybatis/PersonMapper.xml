@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.PersonMapper">
+    <insert id="insertMeasureLog">
+        INSERT INTO measure_log(person_id, type, datetime, data)
+        VALUES (#{personId}, #{type}, #{dateTime}, #{data})
+    </insert>
+    <update id="setType">
+        UPDATE measure_data
+        SET chest_pain      = #{chestPain},
+            angina_pectoris = #{anginaPectoris}
+        WHERE person_id = #{memberId};
+    </update>
+    <update id="updateMeasureData">
+        UPDATE measure_data
+        SET ${type} = #{data}
+        WHERE person_id = #{personId};
+    </update>
+
+    <select id="getFamilyIdByMemberId" resultType="java.lang.Integer">
+        SELECT family_id
+        FROM person
+        WHERE id = #{id}
+    </select>
+    <select id="getName" resultType="java.lang.String">
+        SELECT name
+        FROM person
+        WHERE id = #{id}
+    </select>
+    <select id="getPrediction" resultType="java.lang.String">
+        SELECT car_prediction
+        FROM measure_data
+        WHERE person_id = #{id}
+    </select>
+    <select id="getAppointmentTime" resultType="java.lang.String">
+        SELECT time
+        FROM appointment
+        WHERE person_id = #{id}
+    </select>
+    <select id="getAppointRecords" resultType="com.web.pojo.DoctorForPerson">
+        SELECT doctor_id, name, office, time
+        FROM appointment join doctor
+        WHERE person_id = #{id} AND doctor.id = appointment.doctor_id
+        ORDER BY appointment.time
+    </select>
+
+
+</mapper>
