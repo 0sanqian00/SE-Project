@@ -1,0 +1,12 @@
+<svg height="128" xmlns="http://www.w3.org/2000/svg" data-name="图层 1" viewBox="0 0 256 256" id="图层_1" width="128" style="font-size: 128px;">
+    <defs>
+        <style>.cls-1{fill:#d1dcff;}.cls-2{fill:#ef6356;}</style>
+    </defs>
+    <title>查看更多</title>
+    <g transform="matrix(0.35559507,0,0,0.35559507,-54.064674,-54.064674)">
+        <rect height="303.49" rx="34.68" ry="34.68" class="cls-1" y="156.38" x="152.04" width="303.49"></rect>
+        <rect height="303.49" rx="34.68" ry="34.68" class="cls-1" y="564.13" x="152.04" width="303.49"></rect>
+        <rect height="303.49" rx="34.68" ry="34.68" class="cls-1" y="156.38" x="559.59" width="303.49"></rect>
+        <circle r="160.52" class="cls-2" cx="711.44" cy="707.1"></circle>
+    </g>
+</svg>
