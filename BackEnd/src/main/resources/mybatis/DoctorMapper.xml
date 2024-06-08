@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.web.mapper.DoctorMapper">
     <insert id="appoint">
-        INSERT INTO appointment(person_id, doctor_id, time, `order`)
+        INSERT INTO appointment(person_id, doctor_id, time, 'order')
         VALUES (#{memberId}, #{doctorId}, #{appointmentTime}, #{order})
     </insert>
     <insert id="addDoctor">
-        INSERT INTO doctor(`authority`, name, office, image, title, introduction, community_id)
+        INSERT INTO doctor(authority, name, office, image, title, introduction, community_id)
         VALUES (#{authority}, #{name}, #{office}, #{image}, #{title}, #{introduction}, #{communityId})
     </insert>
     <update id="updateAppointmentStateWithRequest">
