@@ -1,0 +1,21 @@
+server:
+  port: 8077
+#  ssl:
+#    enabled: true #启用SSL
+#    key-store: classpath:keystore.jks #文件位置
+#    key-store-password: Wt8^#b#E*Wex$RMn #密钥存储密码（即生成时要求输入两遍的那个的密钥库口令）
+#    key-store-type: JKS #密钥存储类型
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://116.204.122.181:3306/se-project
+    username: SE-Project
+    password: 123456
+
+mybatis:
+  type-aliases-package: com.web.pojo
+  mapper-locations: classpath:mybatis/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true # enable underscore to camel case
