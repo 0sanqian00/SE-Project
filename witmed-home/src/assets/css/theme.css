@@ -1,0 +1,36 @@
+/* 颜色主题设置 */
+
+/* 暗色 */
+/* :root {
+  --header-color: #3c394e;
+  --bgl1-color: #12141a;
+  --bgl2-color: #262836;
+  --bgl3-color: #3c3e4a;
+
+  --default-color: #fff;
+
+  --border-color: #343b4f;
+
+  --shadow-color: #3806acf3;
+
+  --scrollbarouter-color: rgba(255, 255, 255, 0.5);
+  --scrollbarinner-color: rgba(255, 255, 255, 0.8);
+} */
+
+/* 亮色 */
+:root {
+  --header-color: #c3c2cc;
+  --bgl1-color: #eeeeee;
+  --bgl2-color: #fff;
+  --bgl3-color: #f1f1f1;
+
+  --default-color: #000;
+
+  /* --border-color: #e6e6e6; */
+  --border-color: #F2F2F2;
+
+  --shadow-color: rgba(0, 0, 0, 0.25);
+
+  --scrollbarouter-color: rgba(255, 255, 255, 0.5);
+  --scrollbarinner-color: rgba(255, 255, 255, 0.8);
+}

@@ -1,0 +1,22 @@
+<svg id="图标层-轮廓化" width="128" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" xmlns:xlink="http://www.w3.org/1999/xlink" height="128" style="font-size: 128px;">
+    <defs>
+        <style>.cls-1{fill:url(#未命名的渐变_23);}.cls-2{fill:#365be0;}</style>
+        <linearGradient gradientUnits="userSpaceOnUse" y2="891.9" id="未命名的渐变_23" x1="1218.84" y1="-174.81" x2="48.06">
+            <stop stop-opacity="0" offset="0.17" stop-color="#fff"></stop>
+            <stop stop-opacity="0.03" offset="0.23" stop-color="#f8faff"></stop>
+            <stop stop-opacity="0.11" offset="0.31" stop-color="#e4ebfe"></stop>
+            <stop stop-opacity="0.24" offset="0.41" stop-color="#c4d3fc"></stop>
+            <stop stop-opacity="0.42" offset="0.52" stop-color="#98b2fa"></stop>
+            <stop stop-opacity="0.66" offset="0.65" stop-color="#5f88f8"></stop>
+            <stop stop-opacity="0.94" offset="0.78" stop-color="#1a54f5"></stop>
+            <stop offset="0.8" stop-color="#0c4af4"></stop>
+        </linearGradient>
+    </defs>
+    <title>信息搜索</title>
+    <g transform="matrix(1.2307692,0,0,1.2307692,-29.538462,-29.538462)">
+        <g transform="matrix(0.24016257,0,0,0.24016257,1.3924589,2.4670238)">
+            <circle r="277.13" cx="624.4" class="cls-1" cy="366.79"></circle>
+            <path d="M288.93,769.58a343.28,343.28,0,0,0,350.63,38.16l85.48,148,55.42-32L695,775.74a343.36,343.36,0,1,0-406-6.16Zm67.5-516.25a277.9,277.9,0,0,1,139.32-37.4c96.7,0,190.88,50.15,242.6,139.74C815.43,489.18,769.53,660.51,636,737.6A278,278,0,0,1,496.69,775c-96.69,0-190.88-50.15-242.6-139.74C177,501.75,222.92,330.42,356.43,253.33Z" class="cls-2"></path>
+        </g>
+    </g>
+</svg>
