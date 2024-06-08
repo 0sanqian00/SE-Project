@@ -1,0 +1,137 @@
+/* pages/profile/profile.wxss */
+
+/* 用户基本信息卡片 */
+.usr-card {
+  display: flex;
+  flex-direction: row;
+  height: 400rpx;
+  margin: 20rpx;
+  border-bottom: 1px solid #ccc;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+}
+
+.left-card {
+  width: 33.33%;
+  background: linear-gradient(to right,
+      rgba(201, 214, 255, 0) 0%,
+      rgba(207, 204, 255, 0.4) 44%,
+      rgba(255, 255, 255, 0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  font-size: 45rpx;
+  color: #2b2c48;
+  font-weight: 700;
+}
+
+.basic-info {
+  width: 66.67%;
+  background-color: #ffffff;
+  padding: 20rpx;
+}
+
+.basic-info .title {
+  height: 20%;
+}
+
+.basic-info .title span {
+  border-bottom: 1px solid #ccc;
+}
+
+.basic-info .detail-info {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+}
+
+.detail-info-line {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10rpx;
+  margin-right: 40rpx;
+  font-size: 30rpx;
+}
+
+.detail-info-line .prompt {
+  display: flex;
+}
+
+.prompt-title {
+  margin-left: 5rpx;
+}
+
+/* 预约记录卡片 */
+.reservation-card {
+  margin: 20rpx auto; /* 居中并增加外边距 */
+  padding: 30rpx; /* 增加内边距 */
+  max-width: 90%; /* 设置最大宽度 */
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff10;
+}
+
+.reservation-card .title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #333333;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.reservation-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+}
+
+.record-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.record-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-left, .info-right {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.info-right {
+  justify-content: flex-end;
+}
+
+.divider {
+  height: 1px;
+  background-color: #f3ecec;
+  margin: 20rpx 0;
+}
+
+.hr {
+  margin-top: 20rpx;
+}

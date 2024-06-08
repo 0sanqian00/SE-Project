@@ -1,0 +1,316 @@
+.profile-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 20rpx;
+}
+
+.profile-card_container {
+  display: flex;
+  height: 420rpx;
+  width: 95%;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.profile-card_header {
+  width: 40%;
+  background: #2d6eb8;
+  border-left: 0.625rem solid #69d1c3;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.profile-card_header-container {
+  height: 100%;
+  width: 100%;
+}
+
+.profile-card_header-imgbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220rpx;
+  height: 220rpx;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.profile-card_header image {
+  max-width: 100%;
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.profile-card_header-profile {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: rgb(226, 226, 226);
+}
+
+.profile-card_header-profile .name {
+  font-size: 40rpx;
+  color: #fff;
+  margin-bottom: 5rpx;
+}
+
+.hr {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Other styles from your original CSS */
+
+.profile-card_about {
+  width: 60%;
+  line-height: 1.5;
+  background-color: #fff;
+  padding: 0rem 1rem;
+  color: #222;
+  position: relative;
+}
+
+/* Other styles from your original CSS */
+
+.about-heading {
+  margin: 0;
+  display: inline-block;
+  color: #333;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 38rpx;
+  position: relative;
+  z-index: 2;
+  vertical-align: middle;
+}
+
+.about-heading::before {
+  content: '';
+  position: absolute;
+  width: 110%;
+  height: 1rem;
+  background: #c6f1eb;
+  left: -5px;
+  top: 50%;
+  z-index: -1;
+}
+
+.profile-card_about .introduction {
+  font-size: 24rpx;
+}
+
+.profile-card_footer {
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+}
+
+.appoint-btn {
+  height: 80%;
+  width: 80%;
+}
+
+
+/* 消息弹出 */
+
+.block {
+  /*background: #fff;*/
+  /* width: 90%; */
+  /* height: 800rpx; */
+  /* background-color: #69d1c3; */
+  margin: 40rpx;
+}
+
+.wrapper + .wrapper {
+  margin-top: 32rpx;
+}
+
+
+.mb-16 {
+  margin-bottom: 32rpx;
+}
+
+  /* 医生信息样式 */
+.doctor-info {
+  height: 25%;
+  /* background-color: #f00; */
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.doctor-info-container {
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+  padding: 10px; /* 适当的内边距 */
+}
+
+.doctor-info-img {
+  flex: 0 0 auto; /* 不伸缩，固定宽度 */
+  margin-right: 10px; /* 右侧间距 */
+}
+
+.doctor-info-img image{
+  width: 80px; /* 设置头像宽度 */
+  height: 80px; /* 设置头像高度 */
+  border-radius: 15rpx;
+}
+
+.doctor-info-profile {
+  flex: 1; /* 剩余空间伸缩 */
+}
+
+.info-row {
+  margin-bottom: 5px; /* 行间距 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: pink; */
+}
+
+
+
+
+
+.reserve-info {
+  /* 预约信息样式 */
+  height: 60%;
+  /* background-color: #0f0; */
+}
+
+.btn-area {
+  /* 按钮区域样式 */
+  height: 15%;
+  /* background-color: #00f; */
+}
+
+.left-part {
+  width: 30%;
+  float: left;
+}
+
+.right-part {
+  width: 70%;
+  float: right;
+}
+
+/* 预约时间选择单选区 */
+.card {
+  position: relative;
+  margin: 32rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 3rpx solid #fff;
+}
+
+.card--active {
+  border-color: #0052d9;
+}
+
+.card--active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  border: 14px solid #0052d9;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+.card__icon {
+  color: #fff;
+  position: absolute;
+  left: 1.5px;
+  top: 1.5px;
+  z-index: 1;
+}
+
+.horizontal-box {
+  width: calc(100% - 64rpx);
+  display: flex;
+  align-items: center;
+  margin: 32rpx;
+}
+/* pages/docappoint/docappoint.wxss */
+
+/* 将预约情况卡片移到左下角 */
+.appointment-info {
+  position: absolute;
+  left: 16rpx;
+  bottom: 16rpx;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 8rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+  font-size: 24rpx;
+  color: #333;
+}
+
+/*.horizontal-box .card {
+  flex: 1;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.horizontal-box .card + .card {
+  margin-left: 24rpx;
+}
+
+.label-center {
+  display: flex;
+  justify-content: center; /* 水平居中 *
+  align-items: center; /* 垂直居中 *
+}*
+.horizontal-box {
+  display: flex;
+  flex-wrap: wrap; /* 允许换行 *
+  justify-content: space-between; /* 水平方向上平均分配空间 *
+}
+
+.card {
+  flex: 1; /* 让每个.card元素在flex容器中占据一份空间 *
+  flex-basis: calc(33.333% - 12rpx); /* 每个.card的基础宽度为33.333%，减去间距 *
+  margin-bottom: 12rpx; /* 每行元素之间的垂直间距 *
+  box-sizing: border-box; /* 边框和内边距包含在元素宽度内 *
+}
+
+.card:not(:nth-child(3n)) {
+  margin-right: 12rpx; /* 每三个元素之间的水平间距，除了每行的最后一个 *
+}
+
+/* 按钮区域 */
+.scroll-view-vertical {
+  overflow-y: scroll; /* 允许竖直滚动 */
+  -webkit-overflow-scrolling: touch; /* 启用iOS上的平滑滚动 */
+  /* 可以设置一个合理的高度，或者使用min-height来适应内容 */
+  height: 50%; /* 或者使用具体的高度值，例如 height: 500px; */
+}
+
+/* 其他样式保持不变，因为竖直滚动不会影响flex布局的横向排列 */
+.horizontal-box {
+  display: flex;
+  flex-wrap: wrap; /* 允许换行，以便在高度不足时显示在新行 */
+}
+
+.card {
+  flex: 0 0 auto; /* 让每个.card元素大小固定，不随内容变化 */
+  margin-right: 12rpx; /* 卡片之间的间距 */
+  margin-bottom: 12rpx; /* 添加卡片底部间距，如果需要的话 */
+}
+
+.slots-text {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+.btn-area {
+  margin: 0 32rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32rpx;
+}

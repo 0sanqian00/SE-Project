@@ -1,0 +1,20 @@
+<!--pages/login/login.wxml-->
+<!-- 通知信息 -->
+<t-message id="t-message" />
+
+
+<view class="logo">
+  <image src="../../images/logo.png"></image>
+</view>
+
+<view class="slogan">欢迎使用智慧医家</view>
+<view class="input-box">
+  <t-input model:value="{{ account }}" bind:change="onAccountInput" label="账号 |" placeholder="请输入ID" style="border-radius: 12rpx; height: 24rpx;"></t-input>
+</view>
+<view class="input-box">
+  <t-input model:value="{{ psw }}" bind:change="onPswInput" label="密码 |" type="password" placeholder="请输入密码"  clearable style="border-radius: 12rpx; height: 24rpx;" />
+</view>
+<view class="button-container">
+  <t-button bind:tap="loginHandle" theme="primary" size="medium" block>登录</t-button>
+</view>
+
