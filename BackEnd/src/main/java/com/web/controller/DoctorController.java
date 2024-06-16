@@ -116,4 +116,14 @@ public class DoctorController {
         String adviceContent = advice.getAdvice();
         doctorService.setAdvice(memberId, doctorId, adviceContent);
     }
+
+    /**
+     * 查看医生评价
+     *
+     *
+     */
+    @RequestMapping(value = "/getEvaluation", method = RequestMethod.GET)
+    public List<Evaluation> getEvaluation() {
+        return doctorService.getEvaluation();
+    }
 }

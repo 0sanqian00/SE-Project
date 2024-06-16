@@ -91,5 +91,9 @@
         FROM available_appointment_number
         WHERE doctor_id = #{doctorId}
     </select>
+    <select id="getEvaluation" resultType="com.web.pojo.Evaluation">
+        SELECT *
+        FROM evaluations
+    </select>
 
 </mapper>

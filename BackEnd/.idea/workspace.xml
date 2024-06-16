@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d036f37a-b636-4538-ab49-443e2a5a0451" name="更改" comment="evaluate">
+    <list default="true" id="d036f37a-b636-4538-ab49-443e2a5a0451" name="更改" comment="setAdvice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/PersonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/mapper/DoctorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/mapper/DoctorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/pojo/Advice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/pojo/Advice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/PersonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/DoctorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/DoctorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/PersonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/PersonServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/DoctorMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/DoctorMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/PersonMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/PersonMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717843586958</updated>
       <workItem from="1717843588951" duration="7137000" />
-      <workItem from="1718557105765" duration="4332000" />
+      <workItem from="1718557105765" duration="4904000" />
     </task>
     <task id="LOCAL-00001" summary="commit1">
       <created>1717843830846</created>
@@ -143,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718559704964</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="setAdvice">
+      <created>1718561721765</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718561721765</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +180,7 @@
     <MESSAGE value="deleteDoctor" />
     <MESSAGE value="getAdvice" />
     <MESSAGE value="evaluate" />
-    <option name="LAST_COMMIT_MESSAGE" value="evaluate" />
+    <MESSAGE value="setAdvice" />
+    <option name="LAST_COMMIT_MESSAGE" value="setAdvice" />
   </component>
 </project>
