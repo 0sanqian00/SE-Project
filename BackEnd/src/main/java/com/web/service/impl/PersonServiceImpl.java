@@ -5,6 +5,7 @@ import com.web.mapper.PersonMapper;
 import com.web.pojo.DoctorForPerson;
 import com.web.pojo.MedicalRecord;
 import com.web.service.PersonService;
+import com.web.pojo.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,11 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public List<DoctorForPerson> getAppointRecords(Integer memberId) {
         return personMapper.getAppointRecords(memberId);
+    }
+
+    @Override
+    public List<Advice> getAdvice(Integer memberId) {
+        return personMapper.getAdvice(memberId);
     }
 
 

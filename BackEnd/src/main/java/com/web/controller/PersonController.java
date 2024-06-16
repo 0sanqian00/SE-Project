@@ -3,6 +3,7 @@ package com.web.controller;
 import com.web.pojo.DoctorForPerson;
 import com.web.pojo.MedicalRecord;
 import com.web.service.PersonService;
+import com.web.pojo.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +42,17 @@ public class PersonController {
     public List<DoctorForPerson> getAppointRecords(@RequestParam Integer memberId) {
         return personService.getAppointRecords(memberId);
     }
+    /**
+     * 查看医嘱
+     *
+     * @param memberId 个人Id
+     * @return 医嘱
+     */
 
+    @RequestMapping("/getAdvice")
+    public List<Advice> getAdvice(@RequestParam Integer memberId) {
+
+        return personService.getAdvice(memberId);
+    }
 
 }
