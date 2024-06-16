@@ -1,0 +1,84 @@
+<!--pages/profile/profile.wxml-->
+
+<!-- 用户信息卡片 -->
+<view class="usr-card">
+  <view class="left-card">
+    <!-- 头像 -->
+    <view class="avatar">
+      <t-avatar class="avatar-example" shape="circle" image="{{selectedMember.image}}" size="170rpx" />
+    </view>
+
+    <view class="name">
+      {{selectedMember.name}}
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="basic-info">
+    <view class="title">
+      <span>
+        > 基本信息
+      </span>
+    </view>
+
+    <view class="detail-info">
+      <view class="detail-info-line">
+        <view class="prompt">
+          <span class="prompt-title">
+            性别
+          </span>
+        </view>
+        <view class="data" style="font-weight: 700">
+          {{selectedMember.gender}}
+        </view>
+      </view>
+
+      <view class="detail-info-line">
+        <view class="prompt">
+          <span class="prompt-title">
+            年龄
+          </span>
+        </view>
+        <view class="data" style="font-weight: 700">
+          {{selectedMember.age}} 岁
+        </view>
+      </view>
+
+      <view class="detail-info-line">
+        <view class="prompt">
+          <span class="prompt-title">
+            保留
+          </span>
+        </view>
+        <view class="data">
+          {{selectedMember.index}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="hr"></view>
+
+<view class="reservation-card">
+  <view class="title">
+    <span>预约记录</span>
+  </view>
+  
+  <!-- 预约记录列表 -->
+  <view class="reservation-list">
+    <view wx:for="{{reservationRecords}}" wx:key="index" class="record-item">
+      <view class="record-detail">
+        <view class="record-info">
+          <view class="info-left">
+            <text>{{item.office}} - {{item.name}}</text>
+          </view>
+          <view class="info-right">
+            <text>{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="divider"></view>
+    </view>
+  </view>
+</view>

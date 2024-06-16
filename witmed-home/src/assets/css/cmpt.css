@@ -1,0 +1,102 @@
+/* 
+* 组件样式设计 
+* - icon
+* - card-border
+* - card-shadow
+* - card点击动画
+*/
+
+/* @import url('./theme.css'); */
+
+
+/* icon设置 */
+.icon {
+    width: 4.2em;
+    height: 4.2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/* 默认字体颜色 */
+.default-font-color {
+    color: var(--default-color);
+}
+
+
+/* 圆角边框 */
+.border {
+    border-radius: 10px;
+    /* border: 2px solid var(--border-color); */
+}
+
+/* tag标签边框 */
+.tag-boder {
+    border-radius: 0px 10px 0px 10px;
+}
+
+/* 背景色 level:x 层级 升序*/
+.bg-l1 {
+    background-color: var(--bgl1-color);
+}
+
+.bg-l2 {
+    background-color: var(--bgl2-color);
+}
+
+.bg-l3 {
+    background-color: var(--bgl3-color);
+}
+
+.bg-header {
+    background-color: var(--header-color);
+}
+
+/* 仅阴影 */
+.shadow {
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* shadow-hover 阴影, 悬浮时改变 */
+.shadow-h {
+    box-shadow: 0 0 10px var(--shadow-color);
+    transition: 0.1s;
+}
+
+.shadow-h:hover {
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* shadow-hover-move 阴影，悬浮时改变，且移动*/
+.shadow-hm {
+    box-shadow: 0 0 10px var(--shadow-color);
+    transition: 0.2s;
+} 
+
+.shadow-hm:hover{
+    box-shadow: 0 0 20px var(--shadow-color);
+    transform: translate(2px, 2px);
+}
+
+/* 滚动条设置 */
+
+.scrollbar-box::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 10px;
+    border-radius: 15px;
+  }
+  .scrollbar-box::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    width: 4px;
+    height: 80px;
+    border-radius: 15px;
+    background: var(--scrollbarinner-color);
+  }
+  .scrollbar-box::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    background: var(--scrollbarouter-color);
+    border-radius: 2px;
+  }
+  

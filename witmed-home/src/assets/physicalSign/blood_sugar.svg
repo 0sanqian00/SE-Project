@@ -1,0 +1,33 @@
+<svg xml:space="preserve" x="0px" height="128" version="1.1" xmlns="http://www.w3.org/2000/svg" y="0px" viewBox="0 0 256 256" width="128" style="font-size: 128px;" id="需删除网格" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{fill:url(#SVGID_3_);}
+	.st3{fill:url(#SVGID_4_);}
+</style>
+    <linearGradient x2="719.0588" y2="-5000.9487" x1="354.5888" y1="-5365.4189" gradientTransform="matrix(1 0 0 1 -7.28 5755.9902)" id="SVGID_1_" gradientUnits="userSpaceOnUse">
+        <stop offset="0" style="stop-color:#FD4755"></stop>
+        <stop offset="1" style="stop-color:#D2024E"></stop>
+    </linearGradient>
+    <linearGradient x2="535.35" y2="-4844.6201" x1="535.35" y1="-5108.9199" gradientTransform="matrix(1 0 0 1 -7.28 5755.9902)" id="SVGID_2_" gradientUnits="userSpaceOnUse">
+        <stop offset="0" style="stop-color:#C00148;stop-opacity:0"></stop>
+        <stop offset="1" style="stop-color:#6D3326"></stop>
+    </linearGradient>
+    <linearGradient x2="-3798.7373" y2="-5243.3525" x1="-3618.4575" y1="-5063.0723" gradientTransform="matrix(-1 0 0 1 -3440.54 5755.9902)" id="SVGID_3_" gradientUnits="userSpaceOnUse">
+        <stop offset="0" style="stop-color:#C00148;stop-opacity:0"></stop>
+        <stop offset="1" style="stop-color:#6D3326"></stop>
+    </linearGradient>
+    <linearGradient x2="-3680.0681" y2="-5206.562" x1="-3805.1785" y1="-5331.6719" gradientTransform="matrix(-1 0 0 1 -3440.54 5755.9902)" id="SVGID_4_" gradientUnits="userSpaceOnUse">
+        <stop offset="0" style="stop-color:#FD4755"></stop>
+        <stop offset="1" style="stop-color:#D2024E"></stop>
+    </linearGradient>
+    <g transform="matrix(0.33333333,0,0,0.33333333,-42.666667,-42.666667)">
+        <path d="M814.5,609.5c0,158.2-128.3,286.5-286.5,286.5S241.6,767.7,241.6,609.5S528.1,128,528.1,128
+	S814.5,451.3,814.5,609.5z" class="st0"></path>
+        <path d="M241.6,609.5c0,158.2,128.3,286.5,286.5,286.5s286.5-128.3,286.5-286.5c0-21.9-2.5-47-7.1-74H248.7
+	C244.1,562.5,241.6,587.6,241.6,609.5z" class="st1"></path>
+        <path d="M393.4,548H252.3c-6.3,25-10.3,38-10.3,60c0,22.8,5.8,59.3,10.8,80.6L393.4,548z" class="st2"></path>
+        <path d="M319.2,324.3c0,0,109.8,82.3,109.8,142.9c-0.6,60.6-50.2,109.3-110.8,108.7C258.4,575.3,210,527,209.4,467.2
+	C209.4,406.6,319.2,324.3,319.2,324.3z" class="st3"></path>
+    </g>
+</svg>
