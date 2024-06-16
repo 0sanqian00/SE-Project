@@ -19,4 +19,6 @@ public interface PersonService {
     List<DoctorForPerson> getAppointRecords(Integer memberId);
 
     List<Advice> getAdvice(Integer memberId);
+
+    void evaluate(Integer doctorId, Integer memberId, String evaluation);
 }

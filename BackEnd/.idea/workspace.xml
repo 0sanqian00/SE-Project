@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d036f37a-b636-4538-ab49-443e2a5a0451" name="更改" comment="deleteDoctor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/pojo/Advice.java" afterDir="false" />
+    <list default="true" id="d036f37a-b636-4538-ab49-443e2a5a0451" name="更改" comment="getAdvice">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/pojo/Evaluation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/PersonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/mapper/PersonMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/mapper/PersonMapper.java" afterDir="false" />
@@ -17,6 +17,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -88,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717843586958</updated>
       <workItem from="1717843588951" duration="7137000" />
-      <workItem from="1718557105765" duration="226000" />
+      <workItem from="1718557105765" duration="2392000" />
     </task>
     <task id="LOCAL-00001" summary="commit1">
       <created>1717843830846</created>
@@ -118,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717849188098</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="getAdvice">
+      <created>1718557499491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718557499491</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +165,7 @@
     <MESSAGE value="commit1" />
     <MESSAGE value="addDoctor" />
     <MESSAGE value="deleteDoctor" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleteDoctor" />
+    <MESSAGE value="getAdvice" />
+    <option name="LAST_COMMIT_MESSAGE" value="getAdvice" />
   </component>
 </project>

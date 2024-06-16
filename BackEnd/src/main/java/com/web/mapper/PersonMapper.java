@@ -21,4 +21,6 @@ public interface PersonMapper {
     List<DoctorForPerson> getAppointRecords(Integer memberId);
 
     List<Advice> getAdvice(Integer memberId);
+
+    void evaluate(Integer memberId, Integer doctorId, String evaluation);
 }

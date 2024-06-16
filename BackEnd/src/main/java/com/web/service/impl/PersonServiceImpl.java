@@ -45,5 +45,10 @@ public class PersonServiceImpl implements PersonService {
         return personMapper.getAdvice(memberId);
     }
 
+    @Override
+    public void evaluate(Integer doctorId, Integer memberId, String evaluation) {
+        personMapper.evaluate(memberId, doctorId, evaluation);
+    }
+
 
 }
