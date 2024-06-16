@@ -3,6 +3,7 @@ package com.web.service;
 
 import com.web.pojo.DoctorForPerson;
 import com.web.pojo.MedicalRecord;
+import com.web.pojo.Advice;
 
 
 import java.util.List;
@@ -16,4 +17,8 @@ public interface PersonService {
 
 
     List<DoctorForPerson> getAppointRecords(Integer memberId);
+
+    List<Advice> getAdvice(Integer memberId);
+
+    void evaluate(Integer doctorId, Integer memberId, String evaluation);
 }

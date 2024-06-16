@@ -1,0 +1,25 @@
+/* pages/login/login.wxss */
+.logo {
+  margin: 0 32rpx;
+  margin-top: 200rpx;
+}
+.logo image {
+  width: 120rpx; 
+  height: 120rpx;
+}
+
+.slogan {
+  font-size: 52rpx;
+  font-weight: 700;
+  margin: 60rpx 32rpx;
+}
+
+.input-box {
+  border: 2rpx solid rgba(38, 87, 184,1);
+  border-radius: 12rpx;
+  margin: 0 32rpx 20rpx;
+}
+
+.button-container {
+  margin: 40rpx 32rpx;
+}

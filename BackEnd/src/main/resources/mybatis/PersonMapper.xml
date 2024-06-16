@@ -5,6 +5,10 @@
         INSERT INTO measure_log(person_id, type, datetime, data)
         VALUES (#{personId}, #{type}, #{dateTime}, #{data})
     </insert>
+    <insert id="evaluate">
+        INSERT INTO evaluations(member_id, doctor_id, evaluation)
+        VALUES (#{memberId}, #{doctorId}, #{evaluation})
+    </insert>
     <update id="setType">
         UPDATE measure_data
         SET chest_pain      = #{chestPain},
@@ -42,6 +46,11 @@
         FROM appointment join doctor
         WHERE person_id = #{id} AND doctor.id = appointment.doctor_id
         ORDER BY appointment.time
+    </select>
+    <select id="getAdvice" resultType="com.web.pojo.Advice">
+        SELECT person_id, doctor_id, advice
+        FROM medical_records
+        WHERE person_id = #{memberId}
     </select>
 
 

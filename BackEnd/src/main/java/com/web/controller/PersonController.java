@@ -1,12 +1,12 @@
 package com.web.controller;
 
 import com.web.pojo.DoctorForPerson;
+import com.web.pojo.Evaluation;
 import com.web.pojo.MedicalRecord;
 import com.web.service.PersonService;
+import com.web.pojo.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,6 +41,30 @@ public class PersonController {
     public List<DoctorForPerson> getAppointRecords(@RequestParam Integer memberId) {
         return personService.getAppointRecords(memberId);
     }
+    /**
+     * 查看医嘱
+     *
+     * @param memberId 个人Id
+     * @return 医嘱
+     */
 
+    @RequestMapping("/getAdvice")
+    public List<Advice> getAdvice(@RequestParam Integer memberId) {
+
+        return personService.getAdvice(memberId);
+    }
+
+    /**
+     * 用户端评价医生
+     */
+    @RequestMapping(value = "/evaluate", method = RequestMethod.POST)
+    public void evaluate(@RequestBody Evaluation evaluations) {
+        System.out.println(evaluations);
+        Integer memberId = evaluations.getMemberId();
+        Integer doctorId = evaluations.getDoctorId();
+
+        String evaluation = evaluations.getEvaluation();
+        personService.evaluate(doctorId, memberId, evaluation);
+    }
 
 }

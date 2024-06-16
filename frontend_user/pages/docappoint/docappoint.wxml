@@ -1,0 +1,95 @@
+<!--pages/docappoint/docappoint.wxml-->
+<!-- 通知信息 -->
+<t-message id="t-message" />
+
+<block wx:for="{{ doctorList }}" wx:key="id">
+  <view class="profile-card">
+    <view class="profile-card_container">
+
+      <view class="profile-card_header">
+        <view class="profile-card_header-container">
+          <view class="profile-card_header-imgbox">
+            <image src="{{ item.image }}" mode="aspectFill"></image>
+          </view>
+          <view class="profile-card_header-profile">
+            <view class="name">{{ item.name }}</view>
+            <view class="hr"></view>
+            <view class="office">{{ item.office }}</view>
+            <view class="title">{{ item.title }}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="profile-card_about">
+        <text class="about-heading">个人简介</text>
+        <view class="introduction">{{ item.introduction }}</view>
+        <view class="profile-card_footer">
+          <t-button theme="primary" icon="caret-right" content="点击预约" size="extra-small" class="appoint-btn" block bind:tap="handlePopup" t-class="wrapper" data-doctor="{{ item }}"></t-button>
+        </view>
+      </view>
+
+
+    </view>
+          <!-- 预约情况卡片 -->
+
+  </view>
+</block>
+
+
+
+
+<!-- 预约时间弹出面板 -->
+<t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement='bottom'>
+  <view class="block">
+    <!-- 预约医生基本信息展示 -->
+    <view class="doctor-info">
+      <view class="doctor-info-title">预约医生</view>
+      <view class="doctor-info-container">
+        <view class="doctor-info-img">
+          <image src="https://pic1.zhimg.com/v2-691a506b0f9372cecb256c50143e4ce0_l.jpg?source=32738c0c" mode="aspectFill"></image>
+        </view>
+        <view class="doctor-info-profile">
+          <view class="info-row" style="font-size: 36rpx; color: black;">{{curDoctor.name}}</view>
+          <view class="info-row" style="font-size: 26rpx; color: rgb(30, 30, 30);">{{curDoctor.title}}</view>
+          <view class="info-row" style="font-size: 26rpx; color: rgb(30, 30, 30);">{{curDoctor.office}}</view>
+        </view>
+      </view>
+    </view>
+    
+
+    <!-- 预约时间选择 -->
+    <view class="reserve-info">
+      <t-cell title="选择日期" data-mode="date" bindtap="showPicker" t-class="panel-item" note="{{dateText || ''}}" />
+
+      <t-date-time-picker title="选择日期" visible="{{dateVisible}}" mode="date" defaultValue="{{date}}" format="YYYY-MM-DD" bindchange="onConfirm" bindpick="onColumnChange" bindcancel="hidePicker" start="{{start}}" />
+      
+      <scroll-view scroll-y="true" class="scroll-view-horizontal">
+  <t-radio-group t-class="horizontal-box" value="{{value}}" bind:change="onChange">
+    <view wx:for="{{schedule}}" wx:key="index" class="card {{value == index ? 'card--active' : ''}}">
+      <t-icon wx:if="{{value == index}}" name="check" t-class="card__icon" />
+      <t-radio 
+        value="{{index}}" 
+        label="{{item}}" 
+        icon="none" 
+        borderless 
+        class="label-center" 
+        style="font-size: 28rpx;" 
+        disabled="{{disabledSlots[index]}}"
+      />
+      <!-- 显示可预约人数 -->
+      <text class="slots-text">可预约人数：{{availableSlots[index]}}</text>
+    </view>
+  </t-radio-group>
+</scroll-view>
+
+
+    </view>
+
+    <view class="btn-area">
+      <t-button block size="large" bind:tap="hideHandlePopup">取消</t-button>
+      <t-button theme="primary" block size="large" bind:tap="requestAppoint">确定</t-button>
+    </view>
+
+
+  </view>
+</t-popup>
