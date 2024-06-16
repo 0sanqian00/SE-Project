@@ -103,4 +103,17 @@ public class DoctorController {
         Integer communityId = 1;
         doctorService.addDoctor(id, authority, name, office, title, introduction, image, communityId);
     }
+
+    /**
+     * 设置医嘱
+     *
+     *
+     */
+    @RequestMapping(value = "/setAdvice", method = RequestMethod.POST)
+    public void setAdvice(@RequestBody Advice advice) {
+        Integer memberId = advice.getMemberId();
+        Integer doctorId = advice.getDoctorId();
+        String adviceContent = advice.getAdvice();
+        doctorService.setAdvice(memberId, doctorId, adviceContent);
+    }
 }

@@ -59,10 +59,8 @@ public class PersonController {
      */
     @RequestMapping(value = "/evaluate", method = RequestMethod.POST)
     public void evaluate(@RequestBody Evaluation evaluations) {
-        System.out.println(evaluations);
         Integer memberId = evaluations.getMemberId();
         Integer doctorId = evaluations.getDoctorId();
-
         String evaluation = evaluations.getEvaluation();
         personService.evaluate(doctorId, memberId, evaluation);
     }

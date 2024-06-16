@@ -46,7 +46,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void evaluate(Integer doctorId, Integer memberId, String evaluation) {
+    public void evaluate(Integer memberId, Integer doctorId,  String evaluation) {
         personMapper.evaluate(memberId, doctorId, evaluation);
     }
 

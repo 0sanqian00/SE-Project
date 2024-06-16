@@ -20,5 +20,5 @@ public interface PersonService {
 
     List<Advice> getAdvice(Integer memberId);
 
-    void evaluate(Integer doctorId, Integer memberId, String evaluation);
+    void evaluate(Integer memberId, Integer doctorId, String evaluation);
 }

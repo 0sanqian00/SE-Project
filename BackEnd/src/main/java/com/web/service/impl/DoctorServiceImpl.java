@@ -84,6 +84,11 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
+    public void setAdvice(Integer memberId, Integer doctorId, String adviceContent) {
+        doctorMapper.setAdvice(memberId, doctorId, adviceContent);
+    }
+
+    @Override
     public void deleteDoctor(Integer doctorId) {
         doctorMapper.deleteDoctor(doctorId);
     }
