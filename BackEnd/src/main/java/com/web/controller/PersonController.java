@@ -62,7 +62,7 @@ public class PersonController {
         Integer memberId = evaluations.getMemberId();
         Integer doctorId = evaluations.getDoctorId();
         String evaluation = evaluations.getEvaluation();
-        personService.evaluate(doctorId, memberId, evaluation);
+        personService.evaluate(memberId, doctorId, evaluation);
     }
 
 }

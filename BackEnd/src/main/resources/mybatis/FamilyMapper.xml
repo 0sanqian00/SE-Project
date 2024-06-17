@@ -12,7 +12,11 @@
         FROM person
         WHERE family_id = #{familyId}
     </select>
-
+    <select id="getMeasureDateById" resultType="com.web.pojo.MeasureDate">
+        SELECT *
+        FROM measure_data
+        WHERE person_id = #{id}
+    </select>
     <select id="getAppointmentsByMemberId" resultType="com.web.pojo.Appointment">
         SELECT *
         FROM appointment

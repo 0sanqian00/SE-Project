@@ -3,6 +3,7 @@ package com.web.service.impl;
 import com.web.mapper.DoctorMapper;
 import com.web.mapper.FamilyMapper;
 import com.web.pojo.Appointment;
+import com.web.pojo.MeasureDate;
 import com.web.pojo.Person;
 import com.web.service.FamilyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,17 @@ public class FamilyServiceImpl implements FamilyService {
         return familyMapper.getMemberInfo(familyId);
 
     }
-
+    @Override
+    public List<MeasureDate> getPhySignData(Integer familyId) {
+        List<MeasureDate> measureData = new ArrayList<>();
+        //1. 根据家庭ID查询家庭成员ID
+        List<Integer> memberId = familyMapper.getFamilyMemberId(familyId);
+        //2.根据家庭成员ID查询测量数据
+        for (Integer id : memberId) {
+            measureData.add(familyMapper.getMeasureDateById(id));
+        }
+        return measureData;
+    }
 
     @Override
     public Map<Integer, List<Appointment>> getAppointmentsByFamilyId(Integer familyId) {
