@@ -2,6 +2,7 @@ package com.web.service;
 
 
 import com.web.pojo.DoctorForPerson;
+import com.web.pojo.MeasureLog;
 import com.web.pojo.MedicalRecord;
 import com.web.pojo.Advice;
 
@@ -21,4 +22,6 @@ public interface PersonService {
     List<Advice> getAdvice(Integer memberId);
 
     void evaluate(Integer memberId, Integer doctorId, String evaluation);
+
+    List<MeasureLog> getMeasureLogById(Integer id);
 }

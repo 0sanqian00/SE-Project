@@ -1,10 +1,7 @@
 package com.web.controller;
 
-import com.web.pojo.DoctorForPerson;
-import com.web.pojo.Evaluation;
-import com.web.pojo.MedicalRecord;
+import com.web.pojo.*;
 import com.web.service.PersonService;
-import com.web.pojo.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +14,16 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-
+    /**
+     * 查询个人历史体征测量数据
+     *
+     * @param memberId 个人id
+     * @return 个人历史体征测量数据
+     */
+    @RequestMapping("/getMeasureLog")
+    public List<MeasureLog> getMeasureLogById(@RequestParam Integer memberId) {
+        return personService.getMeasureLogById(memberId);
+    }
 
     /**
      * 查看个人所有历史病历

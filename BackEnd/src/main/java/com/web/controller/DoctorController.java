@@ -47,7 +47,6 @@ public class DoctorController {
      *
      *
      */
-
     @RequestMapping(value = "/appointmentState", method = RequestMethod.GET)
     public List<AppointmentInfo> appointmentState(@RequestParam Integer doctorId) {
         return doctorService.appointmentState(doctorId);

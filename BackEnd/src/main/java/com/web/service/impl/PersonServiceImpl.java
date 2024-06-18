@@ -3,6 +3,7 @@ package com.web.service.impl;
 import com.web.mapper.MedicationMapper;
 import com.web.mapper.PersonMapper;
 import com.web.pojo.DoctorForPerson;
+import com.web.pojo.MeasureLog;
 import com.web.pojo.MedicalRecord;
 import com.web.service.PersonService;
 import com.web.pojo.Advice;
@@ -50,5 +51,9 @@ public class PersonServiceImpl implements PersonService {
         personMapper.evaluate(memberId, doctorId, evaluation);
     }
 
+    @Override
+    public List<MeasureLog> getMeasureLogById(Integer id) {
+        return personMapper.getMeasureLogById(id);
+    }
 
 }
