@@ -71,4 +71,14 @@ public class PersonController {
         personService.evaluate(memberId, doctorId, evaluation);
     }
 
+    /**
+     * 查看个人用药计划
+     * @param memberId 个人id
+     * @return 个人用药计划
+     */
+    @RequestMapping("/getDrugPlan")
+    public List<DrugPlan> getDrugPlan(@RequestParam Integer memberId) {
+        return personService.getDrugPlan(memberId);
+    }
+
 }
