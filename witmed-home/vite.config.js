@@ -25,7 +25,17 @@ export default defineConfig({
         secure: false,
         // 将'/api'替换为''
         rewrite: (path) => path.replace(/^\/api/, '')
+      },
+      '/apii': {
+        // 后端服务器所在的源
+        target: 'https://www.witmed.net.cn:8078',
+        // 修改源
+        changeOrigin: true,
+        secure: true,
+        // 将'/api'替换为''
+        rewrite: (path) => path.replace(/^\/apii/, '')
       }
+
     }
   }
 })

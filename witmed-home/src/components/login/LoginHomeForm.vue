@@ -48,7 +48,7 @@ const login = async () => {
 
             // 保存家庭ID 1
             const dataStore = useDataStore();
-            dataStore.setFamilyId(result.Id);
+            dataStore.setFamilyId(result.Id/2);
             router.push('/home')
         }
     }

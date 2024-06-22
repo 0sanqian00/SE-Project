@@ -1,12 +1,15 @@
 <script setup>
-import { getDoctorList, appointDoctor ,changeGrantDoctor, deleteDoctor, addDoctor} from '@/api/apiUtils.js';
+import { getDoctorList, appointDoctor ,changeGrantDoctor, deleteDoctor, addDoctor, getEva} from '@/api/apiUtils.js';
 import { ref,computed } from 'vue';
 import { useDataStore } from '@/stores/data.js'
 import dayjs from 'dayjs'
 import { ElMessage } from 'element-plus';
+import { useRouter } from 'vue-router'
 
+const router = useRouter();
 const dataStore = useDataStore();
 getDoctorList();
+getEva();
 const availablePeopleList = [1,2,3,4,5,6,7];
 const man = {
     id : 1,
@@ -56,16 +59,64 @@ function handleAddDoc(authority, name, office, title, introduction, image)
 
 function handleDelete(docId){
   deleteDoctor(Number(docId));
+  getDoctorList();
+  location.reload()
+  
 }
 const name = ref('');
 const department = ref('');
 const avatarURL = ref('');
 const title = ref('');
 const bio = ref('');
-
+const isVisible = ref(false);
+const currEva = ref([]);
+var heightPercentage;
+function visible(id)
+{
+  currEva.value = [];
+  for (let i = 0; i < dataStore.Evaluation.length; i++)
+  {
+    if(dataStore.Evaluation[i].doctorId == id){
+      currEva.value.push(dataStore.Evaluation[i])
+    }
+  }
+  heightPercentage = 100 / currEva.value.length;
+  console.log(currEva.value);
+  isVisible.value = true;
+}
 </script>
 
 <template>
+  <el-dialog v-model="isVisible" :show-close="false" width="500" class="dialogAdmin">
+    <div class="container">
+      <div class="nav-bar">
+      	<a>用户评论</a>
+        <div class="close">
+         	<div class="line one"></div>
+         	<div class="line two"></div>
+        </div>
+      </div>
+      <div class="messages-area">
+        
+        
+        <div v-for="(item, index) in currEva" :key="item" :style="{height: heightPercentage + '%'}" :class="index % 2 === 0 ? 'message two' : 'message one'">
+            {{ item.evaluation }} by 用户{{ item.memberId }}
+        </div>
+        
+      </div>
+      <div class="sender-area">
+        <div class="input-place">
+        	<!-- <input placeholder="Send a message." class="send-input" type="text">
+            <div class="send">
+				<svg class="send-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path fill="#6B6C7B" d="M481.508,210.336L68.414,38.926c-17.403-7.222-37.064-4.045-51.309,8.287C2.86,59.547-3.098,78.551,1.558,96.808 L38.327,241h180.026c8.284,0,15.001,6.716,15.001,15.001c0,8.284-6.716,15.001-15.001,15.001H38.327L1.558,415.193 c-4.656,18.258,1.301,37.262,15.547,49.595c14.274,12.357,33.937,15.495,51.31,8.287l413.094-171.409 C500.317,293.862,512,276.364,512,256.001C512,235.638,500.317,218.139,481.508,210.336z"></path></g></g></svg>
+        	</div> -->
+      	</div>
+      </div>
+    <div>
+
+    </div>
+  </div>
+    </el-dialog>
     <div :class="{'main-page-container': !showModal,'main-page-container-modal-open': showModal}" >
         <div class="doc-header ">
           <img class="image-logo" src="@/assets/icons/system.svg">
@@ -89,12 +140,12 @@ const bio = ref('');
             </div>  
                     
             <label>
-                <input v-model="avatarURL" class="input" type="text" placeholder="" required="">
+                <input v-model="avatarURL" class="bala" type="text" placeholder="" required="">
                 <span>头像url</span>
             </label> 
                 
             <label>
-                <input v-model="title" class="input" placeholder="" type="text" required="">
+                <input v-model="title" class="bala" placeholder="" type="text" required="">
                 <span>职称</span>
             </label>
             <label>
@@ -147,7 +198,8 @@ const bio = ref('');
                         </div> 
                     </td>
                     <td>
-                      <button class="button" @click="handleDelete(doctor.id)">删除</button>
+                      <button class="button1" @click="visible(doctor.id)">查看评价</button>
+                      <button class="button" @click="handleDelete(doctor.id)">删除医生</button>
                     </td>
 
 
@@ -160,7 +212,7 @@ const bio = ref('');
 <style lang="css" scoped>
 /* 编辑医生表单样式 */
 .modal{
-  justify-items: center;
+  justify-content: center;
     /* display: flex; */
   display: grid;
   margin-top: 10%;
@@ -193,7 +245,7 @@ const bio = ref('');
 }
 
 .form label .input {
-  width: 100%;
+  /* width: 100%; */
   padding: 10px 10px 20px 10px;
   outline: 0;
   border: 1px solid #355891;
@@ -225,9 +277,44 @@ const bio = ref('');
   color: green;
 }
 
+.form label .bala {
+  width: 100%;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  outline: 0;
+  border: 1px solid #355891;
+  border-radius: 5px;
+}
+.form label .bala + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: #355891;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+.form label .bala:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .bala:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .bala:valid + span {
+  color: green;
+}
+
 .input01 {
   width: 100%;
-  padding: 10px 10px 20px 10px;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
   outline: 0;
   border: 1px solid #355891;
   border-radius: 5px;
@@ -474,11 +561,35 @@ const bio = ref('');
   cursor: pointer;
   transition: all 0.3s;
   color: white;
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 500;
 }
 
 .button:hover {
+  box-shadow: none;
+  opacity: 80%;
+}
+
+.button1 {
+  background: linear-gradient(140.14deg, #6ef44d 15.05%, #3d9755 114.99%)
+      padding-box,
+    linear-gradient(142.51deg, #c5f49e 8.65%, #019b25 88.82%) border-box;
+  border-radius: 7px;
+  border: 2px solid transparent;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 1px #00000040;
+  box-shadow: 8px 8px 20px 0px #45090059;
+
+  padding: 10px 40px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.button1:hover {
   box-shadow: none;
   opacity: 80%;
 }
@@ -621,4 +732,160 @@ const bio = ref('');
   transform: scale(0.9, 0.9);
 }
 
+
+
+/* 评价样式 */
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(226,232,255);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;   
+}
+
+.nav-bar {
+  width: 100%;
+  height: 40px;
+  background-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-bar a {
+  color: #6B6C7B;
+  white-space: nowrap;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.line {
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  background-color: #6B6C7B;
+  border-radius: 30px;
+}
+
+.line.one {
+  transform: rotate(45deg)
+}
+
+.line.two {
+  transform: rotate(135deg)
+}
+
+.messages-area {
+  background-color: green;
+  width: 100%;
+  height: 210px;
+}
+
+.sender-area {
+  background-color: #4b8cc9b0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  /* border-radius: 8px; */
+}
+
+.message {
+  width: 100%;
+}
+
+.message.one,
+.message.three,
+.message.five {
+  background-color: #56b0eb;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message.two,
+.message.four,
+.message.six {
+  background-color: #86d6f8;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.send-img {
+  width: 30px;
+}
+
+.send-input {
+  outline: none;
+  display: flex;
+  border: none;
+  background: none;
+  height: 40px;
+  width: 95%;
+  border-radius: 7px;
+  background: none;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 5px;
+}
+
+.send-input::placeholder {
+  color: #4b8cc9b0;
+}
+
+.input-place {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin-left: 10px;
+  align-items: center;
+
+  border-radius: 7px;
+  height: 40px;
+  width: 95%;
+  gap: 5px;
+}
+
+.send {
+  width: 30px;
+  height: 30px;
+  background-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.send-icon {
+  width: 17px;
+}
+
+
+.dialogAdmin .el-dialog__header, .my-dialog .el-dialog__body {
+    background: #333 !important;
+    color: #393636 !important;
+}
 </style>

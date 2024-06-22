@@ -1,5 +1,6 @@
 <script setup>
 import { useDataStore } from '@/stores/data.js';
+import { getMemberInfo, getphySignData, getMedicalRecord, getDrugPlan, getMeasureLog } from '@/api/apiUtils.js';
 import { ref, onMounted, computed } from 'vue';
 import { ElEmpty } from 'element-plus';
 
@@ -10,8 +11,11 @@ const props = defineProps(['userId']);
 // 数据仓库
 const dataStore = useDataStore();
 
+// getMemberInfo();
+// getphySignData();
 // 根据id匹配phySignData
 function getSignData(personId) {
+    console.log(dataStore.phySignData);
     return dataStore.phySignData.find(data => data.personId == personId) || {};
 }
 

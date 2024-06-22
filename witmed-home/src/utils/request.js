@@ -38,7 +38,7 @@ instance.interceptors.response.use(
             }
             return result.data;
         } else {
-            ElMessage.error('服务异常')
+            // ElMessage.error('服务异常')
             // 异步的状态转化成失败的状态
             return Promise.reject(result.data);
         }
@@ -48,7 +48,7 @@ instance.interceptors.response.use(
             ElMessage.error('请先登录！')
             router.push('login')
         } else {
-            ElMessage.error('服务异常')
+            // ElMessage.error('服务异常')
 
         }
 
@@ -57,4 +57,9 @@ instance.interceptors.response.use(
     }
 )
 
-export default instance;
+
+// 解决跨域问题，代理设置在`vite.config.js`
+const baseURL1 = '/apii';
+const instance1 = axios.create({ baseURL1 });
+export {instance, instance1};
+

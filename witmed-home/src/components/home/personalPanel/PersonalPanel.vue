@@ -11,20 +11,87 @@ import DiseasePrediction from './DiseasePrediction.vue';
 
 // 监听路由变化，获取当前用户id
 const route = useRoute();
-const userId = ref(null);
-onMounted(() => {
-    userId.value = route.params.id;
-    getMedicalRecord(parseInt(userId.value));
-    getDrugPlan(parseInt(userId.value));
-    getMeasureLog(parseInt(userId.value))
-});
 
+const userId = ref(null);
+// onMounted(() => {
+//     userId.value = route.params.id;
+//     getDrugPlan(parseInt(userId.value));
+//     getMeasureLog(parseInt(userId.value))
+//     getMedicalRecord(parseInt(userId.value));
+// });
+
+
+async function fnInit() {
+  userId.value = route.params.id;
+  await getMedicalRecord(parseInt(userId.value));
+  await getDrugPlan(parseInt(userId.value));
+  await getMeasureLog(parseInt(userId.value));
+  await getphySignData();
+}
 // 数据仓库
 const dataStore = useDataStore();
-// getMemberInfo();
-getphySignData();
 
+fnInit();
+console.log(dataStore.measureLog);
+console.log(dataStore.drugPlan);
+console.log(dataStore.medicalRecord);
+console.log(dataStore.memberInfo);
+console.log(dataStore.phySignData);
 
+// dataStore.phySignData.value = [
+//     {
+//         "id": 1,
+//         "personId": 1,
+//         "bloodOxygen": 97.5,
+//         "bloodSugar": 5.6,
+//         "highPreasure": 120,
+//         "lowPreasure": 80,
+//         "bodyTem": 36.8,
+//         "heartRate": 78,
+//         "chestPain": 0,
+//         "anginaPectoris": 0,
+//         "carPrediction": "81%"
+//     },
+//     {
+//         "id": 2,
+//         "personId": 2,
+//         "bloodOxygen": 98.2,
+//         "bloodSugar": 6.2,
+//         "highPreasure": 118,
+//         "lowPreasure": 75,
+//         "bodyTem": 36.8,
+//         "heartRate": 80,
+//         "chestPain": 0,
+//         "anginaPectoris": 0,
+//         "carPrediction": "56%"
+//     },
+//     {
+//         "id": 3,
+//         "personId": 3,
+//         "bloodOxygen": 97.8,
+//         "bloodSugar": 5.8,
+//         "highPreasure": 122,
+//         "lowPreasure": 85,
+//         "bodyTem": 37,
+//         "heartRate": 82,
+//         "chestPain": 2,
+//         "anginaPectoris": 0,
+//         "carPrediction": "12%"
+//     },
+//     {
+//         "id": 16,
+//         "personId": 16,
+//         "bloodOxygen": 97.8,
+//         "bloodSugar": 5.8,
+//         "highPreasure": 120,
+//         "lowPreasure": 80,
+//         "bodyTem": 36.9,
+//         "heartRate": 82,
+//         "chestPain": 2,
+//         "anginaPectoris": 0,
+//         "carPrediction": "18%"
+//     }
+// ];
 // tab栏切换
 const tabs = [
     { name: '用药计划' },

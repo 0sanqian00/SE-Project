@@ -132,6 +132,7 @@ function getImageUrl(Id, flag) {
 function appoint(data){
     console.log(data)
     updateAppointmentStateByDoctor(data)
+    ElMessage.success("设置成功")
 }
 </script>
 

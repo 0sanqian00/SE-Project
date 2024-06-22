@@ -45,6 +45,9 @@ export const useDataStore = defineStore('data', () => {
     const doctorList = ref([]);
     const setDoctorList = (newData) => { doctorList.value = newData; }
 
+    // 医生评价信息
+    const Evaluation = ref([]);
+    const setEvaluation = (newData) => { Evaluation.value = newData; }
 
     return {
         familyId, setFamilyId,
@@ -56,7 +59,8 @@ export const useDataStore = defineStore('data', () => {
         medicalRecord1, setMedicalRecord1,
         drugPlan, setDrugPlan,
         drugBox, setDrugBox,
-        doctorList, setDoctorList
+        doctorList, setDoctorList,
+        Evaluation, setEvaluation
     };
 }, {
     // 持久化存储

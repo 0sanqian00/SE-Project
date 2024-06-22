@@ -1,5 +1,5 @@
 <script setup>
-import { getMemberInfo, measurePhySign, getAppointRecord, getMedicalRecord, getMedicalRecord1 } from '@/api/apiUtils.js';
+import { getMemberInfo, measurePhySign, getAppointRecord, getMedicalRecord, getMedicalRecord1, addDoctorAdvice} from '@/api/apiUtils.js';
 import { ref, defineComponent } from 'vue';
 import { useDataStore } from '@/stores/data.js';
 import { useRouter } from 'vue-router';
@@ -44,6 +44,11 @@ const hasAppointment = (memberId) => {
     return dataStore.appointRecord.some(record => record.personId === memberId);
 };
 
+
+const isVisible = ref(false);
+const currMemberId = ref(0);
+const currMemberName = ref("");
+const advice = ref("");
 // 设置(setting)抽屉
 const drawer = ref(false);
 const direction = ref('ltr');
@@ -58,9 +63,46 @@ function isAppoint(){
     return true;
 }
 }
+
+function visible(id, name)
+{
+    isVisible.value = true;
+    currMemberId.value = id;
+    currMemberName.value = name;
+}
+
+function setAdv(){
+    console.log(advice.value)
+    console.log(currMemberId.value)
+    console.log(currMemberName.value)
+    addDoctorAdvice(currMemberId.value, 1, advice.value);
+    isVisible.value = false;
+}
+
 </script>
 
 <template>
+    <el-dialog v-model="isVisible" :show-close="false" width="500">
+        <div class="popup">
+        <form class="form">
+            <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 34 34" height="34" width="34">
+                <path stroke-linejoin="round" stroke-width="2.5" stroke="#115DFC" d="M7.08385 9.91666L5.3572 11.0677C4.11945 11.8929 3.50056 12.3055 3.16517 12.9347C2.82977 13.564 2.83226 14.3035 2.83722 15.7825C2.84322 17.5631 2.85976 19.3774 2.90559 21.2133C3.01431 25.569 3.06868 27.7468 4.67008 29.3482C6.27148 30.9498 8.47873 31.0049 12.8932 31.1152C15.6396 31.1838 18.3616 31.1838 21.1078 31.1152C25.5224 31.0049 27.7296 30.9498 29.331 29.3482C30.9324 27.7468 30.9868 25.569 31.0954 21.2133C31.1413 19.3774 31.1578 17.5631 31.1639 15.7825C31.1688 14.3035 31.1712 13.564 30.8359 12.9347C30.5004 12.3055 29.8816 11.8929 28.6437 11.0677L26.9171 9.91666"></path>
+                <path stroke-linejoin="round" stroke-width="2.5" stroke="#115DFC" d="M2.83331 14.1667L12.6268 20.0427C14.7574 21.3211 15.8227 21.9603 17 21.9603C18.1772 21.9603 19.2426 21.3211 21.3732 20.0427L31.1666 14.1667"></path>
+                <path stroke-width="2.5" stroke="#115DFC" d="M7.08331 17V8.50001C7.08331 5.82872 7.08331 4.49307 7.91318 3.66321C8.74304 2.83334 10.0787 2.83334 12.75 2.83334H21.25C23.9212 2.83334 25.2569 2.83334 26.0868 3.66321C26.9166 4.49307 26.9166 5.82872 26.9166 8.50001V17"></path>
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#115DFC" d="M14.1667 14.1667H19.8334M14.1667 8.5H19.8334"></path>
+            </svg>
+            </div>
+            <div class="note">
+            <label class="title">设置医嘱</label>
+            <span class="subtitle">请医生根据检查结果，设置相应病人的医嘱。</span>
+            </div>
+            <input v-model="advice" placeholder="请输入医嘱" title="请输入医嘱" class="input_field"/>
+            <button class="submit" @click.prevent="setAdv()">提交</button>
+        </form>
+        </div>
+    </el-dialog>
+    
     <div class="main-page-container">
         <div class="doc-header ">
             <img class="image-logo" src="@/assets/icons/system.svg">
@@ -102,9 +144,31 @@ function isAppoint(){
                             <div class="profile-info-right">
                                 <div class="info-text-row info-text-row-1" style="font-weight: 700; font-size: 26px;">
                                     <div>{{ member.name }}</div>
-                                    <div  @click="router.push(`/home/personalPanel/${member.id}`);"> <img src="@/assets/mainPage/jump-to.png"></div>
-                                </div>
+                                    <div  @click="visible(member.id, member.name)"> 
+                                        <button>
+                                        <div class="svg-wrapper-1">
+                                            <div class="svg-wrapper">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                width="24"
+                                                height="24"
+                                            >
+                                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                                <path
+                                                fill="currentColor"
+                                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                                ></path>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                        <span>设置医嘱</span>
+                                        </button>
+                                    </div>
+                                    
 
+                                </div>
+                                <!-- <img src="@/assets/mainPage/jump-to.png"> -->
                                 <div class="info-text-row info-text-row-2" style="font-size: 20px; color: #596E86;">
                                     <div class="info-text-reseravation">
                                         <el-tag type="danger"
@@ -362,6 +426,7 @@ function isAppoint(){
  left: 50%;
  bottom: 0;
  opacity: 0;
+ justify-content: center;
  transition: 0.3s ease-out;
 }
 
@@ -582,6 +647,153 @@ function isAppoint(){
     border: 1px solid #BADCFF;
     background-color: #E0EFFF;
 }
+
+/* 设置医嘱按钮样式 */
+button {
+  font-family: inherit;
+  margin-left: 2px;
+  font-size: 13px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(5em);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+
+/* 医嘱表单样式 */
+.popup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 13px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #ECF1FD;
+  box-shadow: 0px 0.5px 0.5px #EFEFEF, 0px 1px 0.5px rgba(239, 239, 239, 0.5);
+  border-radius: 5px;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 24px;
+  color: #2B2B2F;
+}
+
+.subtitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: #5F5D6B;
+}
+
+.input_field {
+  width: 100%;
+  height: 42px;
+  padding: 0 0 0 12px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #e5e5e5;
+  filter: drop-shadow(0px 1px 0px #efefef)
+    drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.input_field:focus {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 1px #2B2B2F;
+  background-color: transparent;
+}
+
+.form button.submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 18px;
+  gap: 10px;
+  width: 100%;
+  height: 42px;
+  background: linear-gradient(180deg, #4480FF 0%, #115DFC 50%, #0550ED 100%);
+  box-shadow: 0px 0.5px 0.5px #EFEFEF, 0px 1px 0.5px rgba(239, 239, 239, 0.5);
+  border-radius: 5px;
+  border: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+    
 
 
 /* 右侧测量区 */

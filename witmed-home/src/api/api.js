@@ -1,4 +1,4 @@
-import request from '@/utils/request.js'
+import {instance as request, instance1} from '@/utils/request.js'
 import { ElMessage } from 'element-plus';
 
 // 家庭成员基本信息接口
@@ -13,6 +13,12 @@ export function getMemberInfoService(familyId) {
 
 // 家庭成员体征数据接口
 export function getPhySignDataService(familyId) {
+    // return instance1.get('/family/getPhySignData',
+    //     {
+    //         params: {
+    //             'familyId': familyId
+    //         }
+    //     })
     return request.get('/family/getPhySignData',
         {
             params: {
@@ -33,16 +39,35 @@ export function getAppointRecordService(familyId) {
 
 // 历史体征数据接口
 export function getMeasureLogService(memberId) {
+    // return instance1.get('/person/getMeasureLog',
+    //     {
+    //         params: {
+    //             'memberId': memberId
+    //         }
+    //     })
+
     return request.get('/person/getMeasureLog',
         {
             params: {
                 'memberId': memberId
             }
         })
+    // return request.get('/person/getMeasureLog',
+    //     {
+    //         memberId: memberId
+    //     })
 };
 
 // 疾病预测心绞痛和胸痛更新数据接口
 export function setPainService(memberId, chestPain, anginaPectoris) {
+    // return instance1.get('/person/setPain',
+    //     {
+    //         params: {
+    //             'memberId': memberId,
+    //             'chestPain': chestPain,
+    //             'anginaPectoris': anginaPectoris
+    //         }
+    //     })
     return request.get('/person/setPain',
         {
             params: {
@@ -101,7 +126,13 @@ export function addDoctorService(id, authority, name, office, title, introductio
     })
 };
 
-
+export function addDoctorAdviceService(MemberId, DoctorId, advice) {
+    return request.post('/doctor/setAdvice', {
+        memberId: MemberId,
+        doctorId: DoctorId,
+        advice: advice
+    })
+};
 // 用药计划接口
 export function getDrugPlanService(memberId) {
     return request.get('person/getDrugPlan',
@@ -125,6 +156,11 @@ export function getDrugBoxService(familyId) {
 // 查询医生信息接口
 export function getDoctorListService() {
     return request.get('/doctor/getDoctorList',)
+};
+
+// 管理端查看医生评价接口
+export function getEvaluation() {
+    return request.get('/doctor/getEvaluation',)
 };
 
 // 预约医生接口
