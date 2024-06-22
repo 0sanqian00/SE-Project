@@ -4,6 +4,7 @@ import com.web.mapper.DoctorMapper;
 import com.web.pojo.AppointmentInfo;
 import com.web.pojo.AvailableAppointmentTime;
 import com.web.pojo.Doctor;
+import com.web.pojo.Evaluation;
 import com.web.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,6 +82,16 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public void updateDoctorAuthority(Integer doctorId, Integer authority) {
         doctorMapper.updateDoctorAuthority(doctorId, authority);
+    }
+
+    @Override
+    public void setAdvice(Integer memberId, Integer doctorId, String adviceContent) {
+        doctorMapper.setAdvice(memberId, doctorId, adviceContent);
+    }
+
+    @Override
+    public List<Evaluation> getEvaluation() {
+        return doctorMapper.getEvaluation();
     }
 
     @Override

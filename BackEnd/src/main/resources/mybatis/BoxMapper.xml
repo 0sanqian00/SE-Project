@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.BoxMapper">
+    <select id="getBoxId" resultType="java.lang.Integer">
+        SELECT box_id
+        FROM box
+        WHERE family_id = #{familyId}
+          and medication_id = #{medicationId}
+    </select>
+    <select id="getBoxByFamilyId" resultType="com.web.pojo.Box">
+        SELECT *
+        FROM box
+        WHERE family_id = #{familyId}
+        ORDER BY box_id
+    </select>
+</mapper>

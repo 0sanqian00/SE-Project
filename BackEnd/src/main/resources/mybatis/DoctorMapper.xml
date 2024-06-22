@@ -52,6 +52,10 @@
         SET authority = #{authority}
         WHERE id = #{doctorId}
     </update>
+    <update id="setAdvice">
+        INSERT medical_advice (member_id, doctor_id, advice)
+        VALUES (#{memberId}, #{doctorId}, #{adviceContent})
+    </update>
     <delete id="deleteDoctor">
         DELETE
         FROM doctor
@@ -86,6 +90,10 @@
         SELECT *
         FROM available_appointment_number
         WHERE doctor_id = #{doctorId}
+    </select>
+    <select id="getEvaluation" resultType="com.web.pojo.Evaluation">
+        SELECT *
+        FROM evaluations
     </select>
 
 </mapper>

@@ -1,9 +1,7 @@
 package com.web.service;
 
 
-import com.web.pojo.DoctorForPerson;
-import com.web.pojo.MedicalRecord;
-import com.web.pojo.Advice;
+import com.web.pojo.*;
 
 
 import java.util.List;
@@ -20,5 +18,8 @@ public interface PersonService {
 
     List<Advice> getAdvice(Integer memberId);
 
-    void evaluate(Integer doctorId, Integer memberId, String evaluation);
+    void evaluate(Integer memberId, Integer doctorId, String evaluation);
+
+    List<MeasureLog> getMeasureLogById(Integer id);
+    List<DrugPlan> getDrugPlan(Integer id);
 }

@@ -48,9 +48,14 @@
         ORDER BY appointment.time
     </select>
     <select id="getAdvice" resultType="com.web.pojo.Advice">
-        SELECT person_id, doctor_id, advice
-        FROM medical_records
-        WHERE person_id = #{memberId}
+        SELECT member_id, doctor_id, advice
+        FROM medical_advice
+        WHERE member_id = #{memberId}
+    </select>
+    <select id="getMeasureLogById" resultType="com.web.pojo.MeasureLog">
+        SELECT *
+        FROM measure_log
+        WHERE person_id = #{id}
     </select>
 
 

@@ -1,6 +1,7 @@
 package com.web.controller;
 
 import com.web.pojo.Appointment;
+import com.web.pojo.MeasureDate;
 import com.web.pojo.Person;
 import com.web.service.FamilyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,18 @@ public class FamilyController {
     public List<Person> getMemberInfo(@RequestParam Integer familyId) {
         return familyService.getMemberInfo(familyId);
     }
+
+    /**
+     * 获取指定家庭的所有成员体征数据
+     *
+     * @param familyId 家庭ID
+     * @return 指定家庭的所有成员体征数据
+     */
+    @RequestMapping("/getPhySignData")
+    public List<MeasureDate> getPhySignData(@RequestParam Integer familyId) {
+        return familyService.getPhySignData(familyId);
+    }
+
 
 
     /**

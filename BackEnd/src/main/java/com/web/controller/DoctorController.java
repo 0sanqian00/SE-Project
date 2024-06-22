@@ -47,7 +47,6 @@ public class DoctorController {
      *
      *
      */
-
     @RequestMapping(value = "/appointmentState", method = RequestMethod.GET)
     public List<AppointmentInfo> appointmentState(@RequestParam Integer doctorId) {
         return doctorService.appointmentState(doctorId);
@@ -102,5 +101,28 @@ public class DoctorController {
         String image = doctor.getImage();
         Integer communityId = 1;
         doctorService.addDoctor(id, authority, name, office, title, introduction, image, communityId);
+    }
+
+    /**
+     * 设置医嘱
+     *
+     *
+     */
+    @RequestMapping(value = "/setAdvice", method = RequestMethod.POST)
+    public void setAdvice(@RequestBody Advice advice) {
+        Integer memberId = advice.getMemberId();
+        Integer doctorId = advice.getDoctorId();
+        String adviceContent = advice.getAdvice();
+        doctorService.setAdvice(memberId, doctorId, adviceContent);
+    }
+
+    /**
+     * 查看医生评价
+     *
+     *
+     */
+    @RequestMapping(value = "/getEvaluation", method = RequestMethod.GET)
+    public List<Evaluation> getEvaluation() {
+        return doctorService.getEvaluation();
     }
 }

@@ -2,6 +2,7 @@ package com.web.mapper;
 
 import com.web.pojo.AppointmentInfo;
 import com.web.pojo.Doctor;
+import com.web.pojo.Evaluation;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -30,4 +31,9 @@ public interface DoctorMapper {
     void deleteDoctor(Integer doctorId);
 
     void addDoctor(Integer id, Integer authority, String name, String office, String image, String title, String introduction, Integer communityId);
+
+    void setAdvice(Integer memberId, Integer doctorId, String adviceContent);
+
+
+    List<Evaluation> getEvaluation();
 }
