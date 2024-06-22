@@ -1,0 +1,12 @@
+<!--pages/evaluation/evaluation.wxml-->
+<t-message id="t-message" />
+<view class="evaluation-page">
+  <view class="evaluation-form">
+    <view class="evaluation-item">
+      <text>评价内容：</text>
+      <input class="evaluation-text" type="text" placeholder="输入您的评价内容" bindinput="handleEvaluationInput" />
+    </view>
+    <!-- 提交按钮 -->
+    <button class="submit-button" bindtap="submitEvaluation">提交评价</button>
+  </view>
+</view>

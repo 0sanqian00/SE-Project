@@ -15,9 +15,6 @@ Page({
     phySignData: {},
     memberInfoWithSignData: [],
     selectedMember: null, // 添加一个新的字段来保存第一个成员信息
-    selectedDoctor: {}, // 选中的医生对象
-    selectedDoctorName: '', // 选中的医生姓名
-    selectedTime: '', // 选择的时间
     reservationRecords: [], // 新增字段，用于存储预约记录
   },
 
@@ -41,35 +38,41 @@ Page({
       });
     }
   },
+
   // 请求用户的预约记录
-async getReservationRecords() {
-  const res = await instance.get('/person/getAppointRecord', {
-    'memberId': 1 // 这里memberID固定为1
-  });
-  console.log('getReservationRecords 响应:', res);
-  if (Array.isArray(res) && res.length > 0) {
-    // 直接使用res，因为它已经是拦截器返回的数据
-    this.setData({
-      reservationRecords: res // 更新预约记录
+  async getReservationRecords() {
+    const res = await instance.get('/person/getAppointRecord', {
+      'memberId': 1 // 这里memberID固定为1
     });
-  }
-},
+    console.log('getReservationRecords 响应:', res);
+    if (Array.isArray(res) && res.length > 0) {
+      // 直接使用res，因为它已经是拦截器返回的数据
+      this.setData({
+        reservationRecords: res // 更新预约记录
+      });
+    }
+  },
+
+  goToAdvicePage: function() {
+    // 使用固定的 memberID 进行页面跳转
+    wx.navigateTo({
+      url: `/pages/advice/advice?memberID=1`
+    });
+  },
+
+  goToEvaluatePage: function(event) {
+    const doctorId = event.currentTarget.dataset.doctorid;
+    wx.navigateTo({
+      url: `/pages/evaluation/evaluation?doctorId=${doctorId}`
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  // onLoad(options) {
-  //   // 初始化数据请求
-  //   console.log('onLoad: 初始化数据请求');
-  //   this.getMemberInfo()
-  //     .then(() => {
-  //       console.log('onLoad: getMemberInfo 完成');
-  //     })
-  //     .catch(error => {
-  //       console.error('onLoad: 数据请求失败', error);
-  //     });
-  // },
-  onLoad(options) {
+  onShow() {
     // 初始化数据请求
+    this.getTabBar().init();
     console.log('onLoad: 初始化数据请求');
     Promise.all([
       this.getMemberInfo(),
@@ -80,6 +83,7 @@ async getReservationRecords() {
       console.error('onLoad: 数据请求失败', error);
     });
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -99,12 +103,6 @@ async getReservationRecords() {
       .catch(error => {
         console.error('onReady: 数据请求失败', error);
       });
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    this.getTabBar().init();
   },
 
   /**
@@ -141,4 +139,4 @@ async getReservationRecords() {
   onShareAppMessage() {
 
   },
-})
+});

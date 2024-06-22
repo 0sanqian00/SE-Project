@@ -37,8 +37,8 @@
           "scene": null
         },
         {
-          "name": "药箱开发",
-          "pathName": "pages/medbox/medbox",
+          "name": "体征监测",
+          "pathName": "pages/phySign/phySign",
           "query": "",
           "launchMode": "default",
           "scene": null

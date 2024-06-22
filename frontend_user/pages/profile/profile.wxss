@@ -135,3 +135,42 @@
 .hr {
   margin-top: 20rpx;
 }
+/* 其他样式保持不变 */
+
+/* 医嘱查看按钮的样式 */
+.advice-button {
+  display: block; /* 使按钮独占一行 */
+  width: 90%; /* 设置按钮宽度 */
+  margin: 20px auto; /* 外边距设置，居中显示 */
+  padding: 10px; /* 内边距设置 */
+  font-size: 18px; /* 字体大小 */
+  color: #ffffff; /* 字体颜色 */
+  background-color: #4c748f; /* 按钮背景颜色 */
+  border: none; /* 无边框 */
+  border-radius: 5px; /* 圆角边框 */
+  text-align: center; /* 文本居中 */
+  cursor: pointer; /* 鼠标悬停时显示手形图标 */
+}
+/* 评价按钮的样式 */
+.evaluate-button {
+  width: 10%; /* 按钮宽度占满整行 */
+  margin-top: 10rpx; /* 按钮与上文内容的间距 */
+  padding: 10rpx; /* 按钮内边距 */
+  font-size: 28rpx; /* 字体大小 */
+  color: #252323; /* 字体颜色 */
+  background-color: #eff3ef; /* 按钮背景颜色 */
+  border: none; /* 无边框 */
+  border-radius: 5px; /* 圆角边框 */
+  text-align: center; /* 文本居中 */
+  cursor: pointer; /* 鼠标悬停时显示手形图标 */
+  box-sizing: content-box; /* 边框计算在宽度内 */
+}
+
+/* 按钮悬停效果 */
+.evaluate-button:hover {
+  background-color: #179b16; /* 鼠标悬停时的背景颜色 */
+}
+/* 按钮悬停效果 */
+.advice-button:hover {
+  background-color: #005fd9; /* 鼠标悬停时的背景颜色 */
+}

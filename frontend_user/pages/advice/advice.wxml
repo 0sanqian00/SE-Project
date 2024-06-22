@@ -1,0 +1,10 @@
+<!-- advice.wxml -->
+<view class="advice-container">
+  <view class="no-advice-tip" wx:if="{{noAdviceTip}}">当前无医嘱信息</view>
+  <view class="advice-list" wx:if="{{!noAdviceTip}}">
+    <view class="advice-item" wx:for="{{adviceList}}" wx:key="doctorId">
+      <view class="doctor-info">{{item.doctorName}} - {{item.office}}</view>
+      <view class="advice-content">{{item.advice}}</view>
+    </view>
+  </view>
+</view>

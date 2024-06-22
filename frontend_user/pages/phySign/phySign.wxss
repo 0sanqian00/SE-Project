@@ -1,0 +1,80 @@
+/* pages/phySign/phySign.wxss */
+/* 体征数据 */
+.phy-sign-data {
+  /* height: calc(100vh - 350rpx - 112rpx - 96rpx - 100rpx);
+  overflow: scroll; */
+  display: flex;
+  flex-wrap: wrap;
+  /* 当一行卡片填满后自动换行 */
+  justify-content: space-between;
+  /* 在卡片之间添加一些空间 */
+  margin: 0 20rpx;
+  padding-top: 20rpx;
+}
+
+.card {
+  width: 48%;
+  height: 260rpx;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+  /* 每个卡片占据行宽的大约一半，考虑到间隙 */
+  margin-bottom: 20rpx;
+  /* 卡片之间的垂直间距 */
+
+}
+
+.card:nth-last-child(1) {
+  margin-bottom: 80px;
+  width: 100%;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  height: 48rpx;
+}
+
+.icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.title-text {
+  line-height: 48rpx;
+  font-size: 32rpx;
+  margin-left: 10rpx;
+  color: #f02839;
+}
+
+.data-section {
+  padding: 20rpx;
+  margin-left: 20rpx;
+}
+
+.data-row {
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+}
+
+.big-number {
+  font-size: 50rpx;
+}
+
+.unit {
+  margin-left: 10rpx;
+}
+
+
+.small-text {
+  font-size: 24rpx;
+  color: #bebebe;
+}
+
+.visualization {
+  display: none;
+  text-align: center;
+  padding: 10rpx;
+}

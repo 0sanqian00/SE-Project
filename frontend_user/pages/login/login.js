@@ -59,6 +59,7 @@ Page({
         });
         
         
+        
       } catch (error) {
         console.error('Failed to set token:', error);
         this.showErrorMessage();

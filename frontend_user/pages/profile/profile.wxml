@@ -66,19 +66,30 @@
   </view>
   
   <!-- 预约记录列表 -->
+  <!-- 省略之前的代码 -->
+
   <view class="reservation-list">
-    <view wx:for="{{reservationRecords}}" wx:key="index" class="record-item">
-      <view class="record-detail">
-        <view class="record-info">
-          <view class="info-left">
-            <text>{{item.office}} - {{item.name}}</text>
-          </view>
-          <view class="info-right">
-            <text>{{item.time}}</text>
-          </view>
+  <view wx:for="{{reservationRecords}}" wx:key="index" class="record-item">
+    <view class="record-detail">
+      <view class="record-info">
+        <view class="info-left">
+          <text>{{item.office}} - {{item.name}}</text>
+        </view>
+        <view class="info-right">
+          <text>{{item.time}}</text>
         </view>
       </view>
-      <view class="divider"></view>
+      <!-- 在评价按钮前添加一个空格 -->
+      <view style="width: 20rpx;"></view>
+      <!-- 新增评价按钮，传递对应的doctorId -->
+      <button class="evaluate-button" data-doctorid="{{item.doctorId}}" data-index="{{index}}" bindtap="goToEvaluatePage">评价</button>
     </view>
+    <view class="divider"></view>
   </view>
+</view>
+
+
+<!-- 省略之后的代码 -->
+  <!-- 医嘱查看按钮 -->
+  <button class="advice-button" bindtap="goToAdvicePage">医嘱查看</button>
 </view>

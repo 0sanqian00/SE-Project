@@ -1,10 +1,14 @@
 {
   "pages": [
     "pages/profile/profile",
+    "pages/phySign/phySign",
     "pages/docappoint/docappoint",
     "custom-tab-bar/index",
     "pages/test/test",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/advice/advice",
+    "pages/evaluation/evaluation"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,6 +28,10 @@
       {
         "pagePath": "pages/profile/profile",
         "text": "个人信息"
+      },
+      {
+        "pagePath": "pages/phySign/phySign",
+        "text": "体征监测"
       },
       {
         "pagePath": "pages/docappoint/docappoint",
